@@ -1,3 +1,15 @@
-<div>
-    Page
-</div>
+@if (!cars()) {
+<div>Carregando...</div>
+} @else if (error) {
+<div class="error">{{ error }}</div>
+} @else {
+<ul>
+    @for (car of cars(); track car.id) {
+    <li>
+        <h3>{{ car.model }}</h3>
+        <p>Marca: {{ car.brand }}</p>
+        <p>Ano: {{ car.year }}</p>
+    </li>
+    }
+</ul>
+}

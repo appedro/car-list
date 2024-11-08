@@ -9,21 +9,21 @@ import { Car } from '../../shared/models/car';
   providedIn: 'root',
 })
 export class CarListPageService {
-  carsSignal = signal<Car[]>([]);
-  loadingSignal = signal<boolean>(false);
-  errorSignal = signal<string | null>(null);
+  public carsSignal = signal<Car[]>([]);
+  public loadingSignal = signal<boolean>(false);
+  public errorSignal = signal<string | null>(null);
 
   private apiUrl = 'http://localhost:3000/api/cars/all';
 
   constructor(private http: HttpClient) { }
 
-  getAllCars() {
+  public getAllCars() {
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
 
-    this.http.get<Car[]>(this.apiUrl).pipe(
+    this.http.get<{ cars: Car[] }>(this.apiUrl).pipe(
       tap((data) => {
-        this.carsSignal.set(data);
+        this.carsSignal.set(data.cars);
         this.loadingSignal.set(false);
       }),
       catchError((error) => {
@@ -34,7 +34,7 @@ export class CarListPageService {
     ).subscribe();
   }
 
-  addCar(newCar: Car) {
+  public addCar(newCar: Car) {
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
 
@@ -51,7 +51,7 @@ export class CarListPageService {
     ).subscribe();
   }
 
-  updateCar(updatedCar: Car) {
+  public updateCar(updatedCar: Car) {
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
 
@@ -69,7 +69,7 @@ export class CarListPageService {
     ).subscribe();
   }
 
-  deleteCar(carId: number) {
+  public deleteCar(carId: number) {
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
 

@@ -11,8 +11,8 @@ import { CarListPageService } from './car-list-page.service';
   styleUrl: './car-list-page.component.scss'
 })
 export class CarListPageComponent {
-  cars: Car[] = [];
-  loading: boolean = false;
+  cars = this.carListService.carsSignal;
+  loading = this.carListService.loadingSignal;
   error: string | null = null;
 
   constructor(private carListService: CarListPageService) { }
@@ -21,18 +21,8 @@ export class CarListPageComponent {
     this.loadCars();
   }
 
-  loadCars() {
-    this.loading = true;
-    this.error = null;
-    this.carListService.getAllCars(); // Chama o método para obter os carros
-
-    // Monitora o Signal diretamente para obter os dados
-    this.updateCars();
+  private loadCars() {
+    this.carListService.getAllCars();
   }
 
-  private updateCars() {
-    this.cars = this.carListService.carsSignal(); // Obtém os dados do Signal diretamente
-    this.loading = this.carListService.loadingSignal(); // Obtém o estado de carregamento
-    this.error = this.carListService.errorSignal(); // Obtém o erro, se houver
-  }
 }
