@@ -1,1 +1,14 @@
-<p>car-card works!</p>
+<div>
+    <div class="car-picture">
+        <img [src]="car.image" alt="">
+    </div>
+    <div class="car-info">
+        <div>
+            <img [src]="getBrandLogo(car.brand)" /> {{ car.brand }} {{ car.model }} {{car.year}}
+        </div>
+        <div>
+            {{car.price}}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+@import "../../../styles/colors.scss";
+
+:host {
+    background-color: $primary;
+    padding: 32px;
+    border-radius: 8px;
+    color: $font-dark;
+    width: 250px;
+    box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.19);
+
+
+    .car-picture {
+        height: 150px;
+        background-color: rgba(0,0,0,.05);
+        padding: 8px;
+        border-radius: 8px;
+        margin-bottom: 32px;
+        img {
+            width: 100%;
+        }
+    }
+
+    .car-info {
+        display: flex;
+        justify-content: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        font-weight: 600;
+
+        div {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        img {
+            width: 32px;
+        }
+    }
+}
