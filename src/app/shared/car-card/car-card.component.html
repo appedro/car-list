@@ -6,8 +6,9 @@
         <div>
             <img [src]="getBrandLogo(car.brand)" /> {{ car.brand }} {{ car.model }} {{car.year}}
         </div>
-        <div>
-            {{car.price}}
+        <div>Placa final {{getLastLicensePlate(car.licensePlate)}}</div>
+        <div class="price">
+            {{car.price | currency:"BRL"}}
         </div>
     </div>
 
