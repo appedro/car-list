@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/colors.scss"
+              ]
+            },
             "outputPath": "dist/car-list",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -30,7 +35,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/styles/colors.scss"
             ],
             "scripts": []
           },
