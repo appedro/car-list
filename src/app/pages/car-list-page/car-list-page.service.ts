@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { signal } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, delay, tap } from 'rxjs/operators';
 import { Car } from '../../shared/models/car';
 
 @Injectable({
@@ -22,6 +22,7 @@ export class CarListPageService {
     this.errorSignal.set(null);
 
     this.http.get<{ cars: Car[] }>(this.apiUrl).pipe(
+      delay(2000),
       tap((data) => {
         this.carsSignal.set(data.cars);
         this.loadingSignal.set(false);
