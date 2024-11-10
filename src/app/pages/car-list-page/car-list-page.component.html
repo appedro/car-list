@@ -1,5 +1,7 @@
-@if (!cars()) {
-<div>Carregando...</div>
+@if (true) {
+<div class="loading">
+    <img src="assets/images/spinner.png" alt="">
+</div>
 } @else if (error) {
 <div class="error">{{ error }}</div>
 } @else {

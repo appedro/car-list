@@ -4,3 +4,17 @@
     flex-wrap: wrap;
     gap: 32px;
 }
+.loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+    animation: rotate 1s infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
