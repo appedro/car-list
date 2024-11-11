@@ -7,8 +7,8 @@
     color: $font-dark;
     width: 250px;
     box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.19);
-
-
+    transition: all 1s;
+    cursor: pointer;
     .car-picture {
         height: 150px;
         background-color: rgba(0,0,0,.05);
@@ -40,5 +40,8 @@
         img {
             width: 32px;
         }
+    }
+    &:hover {
+        transform: scale(1.05);
     }
 }
